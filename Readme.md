@@ -3,6 +3,7 @@
 ## Contents
 
 - [How to setup](#-How-to-setup-📖)
+- [Developed By](#-Developed-By)
 
 ## How to setup 📖
 
@@ -15,3 +16,9 @@
 - Demo ScreenShot present inside the doc folder
 
 **Note**: _App require authentication so, after setup create account_
+
+## Developed By
+
+#### **Name**: Rishabh Jaishwal
+
+#### **Email**: rishabhjaishwal7@gmail.com

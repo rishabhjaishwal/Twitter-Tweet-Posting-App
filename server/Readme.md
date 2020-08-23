@@ -73,6 +73,8 @@ npm run prod
 
 
     // Note: These variable need to be put inside the .env file
+    // Note: If mongo auth used then set MONGO_AUTH=1 otherwise if set MONGO_AUTH=0
+    // Note: Based on MONGO_AUTH mongo connection URL generated
 ```
 
 ## Developed By
