@@ -1,0 +1,52 @@
+<div class="center-align">
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm.value)">
+    <h2>Create Account</h2>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Name</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" [ngClass]="{'is-inv': f.name.touched && f.name.invalid}"><i
+              class="fas fa-user"></i></div>
+        </div>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': f.name.touched && f.name.invalid}"
+          formControlName="name" placeholder="Name">
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Email</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" [ngClass]="{'is-inv': f.email.touched && f.email.invalid}"><i
+              class="far fa-envelope"></i></div>
+        </div>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': f.email.touched && f.email.invalid}"
+          formControlName="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Password</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" [ngClass]="{'is-inv': f.password.touched && f.password.invalid}"><i
+              class="fas fa-key"></i></div>
+        </div>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': f.password.touched && f.password.invalid}"
+          formControlName="password" placeholder="Password">
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Confirm Password</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" [ngClass]="{'is-inv': f.confirmpassword.touched && f.confirmpassword.invalid}">
+            <i class="fas fa-lock"></i></div>
+        </div>
+        <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': f.confirmpassword.touched && f.confirmpassword.invalid}"
+          formControlName="confirmpassword" placeholder="Confirm Password">
+      </div>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="signUpForm.invalid">Create Account</button>
+  </form>
+  <span class="linkify" [routerLink]="['/login']">Go back to login</span>
+</div>

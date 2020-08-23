@@ -1,0 +1,37 @@
+.center-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+form {
+  width: 450px;
+}
+
+.input-group,
+input {
+  height: 50px;
+  border-left: none;
+}
+
+.input-group-text {
+  background-color: white;
+}
+
+.linkify {
+  margin-top: 15px;
+  color: blue;
+  cursor: pointer;
+}
+
+.linkify:hover {
+  text-decoration-line: underline;
+}
+
+
+.is-inv {
+  border: 1px solid #dc3545;
+}

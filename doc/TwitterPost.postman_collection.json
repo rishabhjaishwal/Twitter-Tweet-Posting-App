@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "a02789f2-91e6-4ac2-b353-af2327a280eb",
+		"name": "TwitterPost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Rishabh jaishwal\",\n    \"email\":\"rishabhjaishwal71@gmail.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/user/signup",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"rishabhjaishwal71@gmail.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/user/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profileCreate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTgwOTYwNDEsImV4cCI6MTU5ODE4MjQ0MX0.IQ_yXoYuLK3q75ItPVmtTzr8GPqh3Wd7flSmVLxnHlo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token-",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profilePic",
+							"type": "file",
+							"src": "/home/rishabh/Pictures/6.png"
+						},
+						{
+							"key": "firstName",
+							"value": "john",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "doe",
+							"type": "text"
+						},
+						{
+							"key": "designation",
+							"value": "developer",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "universe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/profile/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"profile",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

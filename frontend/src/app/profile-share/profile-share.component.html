@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<div class="container result" *ngIf="sharedData">
+  <b>Last Shared Profile:</b><br>
+  firstName: {{sharedData?.firstName}}<br>
+  lastName: {{sharedData?.lastName}}<br>
+  designation: {{sharedData?.designation}}<br>
+  location: {{sharedData?.location}}<br>
+  profilePic: <a href="{{sharedData?.profilePic}}">Image Link</a>
+</div>
+
+<div class="center-align">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+    <h2>Create Profile & Share</h2>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">First Name</label>
+      <div class="input-group mb-2 ">
+        <div class="input-group-prepend ">
+          <div class="input-group-text " [ngClass]="{'is-inv': f.firstName.touched && f.firstName.invalid}"><i
+              class="fas fa-user"></i></div>
+        </div>
+        <input type="text" class="form-control is-invalid"
+          [ngClass]="{'is-invalid': f.firstName.touched && f.firstName.invalid}" formControlName="firstName"
+          placeholder="First Name">
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Last Name</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" [ngClass]="{'is-inv': f.lastName.touched && f.lastName.invalid}"><i
+              class="fas fa-user"></i></div>
+        </div>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': f.lastName.touched && f.lastName.invalid}"
+          formControlName="lastName" placeholder="Last Name">
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Designation</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" [ngClass]="{'is-inv': f.designation.touched && f.designation.invalid}"><i
+              class="fas fa-user-tie"></i></div>
+        </div>
+        <input type="text" class="form-control" formControlName="designation"
+          [ngClass]="{'is-invalid': f.designation.touched && f.designation.invalid}" placeholder="Designation">
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Location</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" [ngClass]="{'is-inv': f.location.touched && f.location.invalid}"><i
+              class="fas fa-map-marker-alt"></i></div>
+        </div>
+        <input type="text" class="form-control" formControlName="location"
+          [ngClass]="{'is-invalid': f.location.touched && f.location.invalid}" placeholder="Location">
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInputGroup">Profile Image</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" [ngClass]="{'is-inv': f.profilePic.touched && f.profilePic.invalid}"><i
+              class="far fa-file-image"></i></div>
+        </div>
+        <input type="file" class="form-control" (change)="fileChanged($event)" formControlName="profilePic"
+          [ngClass]="{'is-invalid': f.profilePic.touched && f.profilePic.invalid}" placeholder="Profile Image">
+      </div>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="disableShareButton || registerForm.invalid">
+      <i class="fa fa-refresh fa-spin" *ngIf="disableShareButton"></i>&nbsp; Create Profile &
+      Share</button>
+  </form>
+</div>

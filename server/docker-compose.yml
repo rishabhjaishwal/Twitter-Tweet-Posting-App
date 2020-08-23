@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  #Main Application
+  tweet_app:
+    image: node:12.14-alpine
+    working_dir: /usr/src/app
+    container_name: tweet_app
+    depends_on:
+      - tweet_mongodb
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "$APP_PORT:$APP_PORT"
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - tweet_app_network
+    command: ./wait-for.sh tweet_mongodb:$MONGO_PORT -- npm run dev
+
+  #MongoDB Container Example
+  tweet_mongodb:
+    image: mongo:4.2-bionic
+    container_name: tweet_mongodb
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+    ports:
+      - "5101:$MONGO_PORT"
+    volumes:
+      - tweet_mongodb_data:/data/db
+    networks:
+      - tweet_app_network
+
+networks:
+  tweet_app_network:
+    external: true
+
+volumes:
+  tweet_mongodb_data:
