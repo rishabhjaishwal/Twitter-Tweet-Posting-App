@@ -22,10 +22,6 @@ app.get('/', (req, res) => {
   res.send('🔥🔥🔥🔥Welcome to BackEnd🔥🔥🔥🔥');
 });
 
-app.use((req,res,next) => {
-  console.log(req);
-  next();
-})
 
 // Routes
 app.use('/api', routes);
